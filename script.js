@@ -3,12 +3,8 @@ const TELEGRAM_URL  = 'https://t.me/StrawberryRa_bot';
 const CHANNEL_URL   = 'https://t.me/+ZiU4ZCSGEgk0NzU6';  // канал — в подвале и эксперте
 const INSTAGRAM_URL = 'https://instagram.com/rameta7777';
 
-/* ===== ПОДСТАВЛЯЕМ ССЫЛКИ НА CTA-КНОПКИ ===== */
-document.querySelectorAll('.cta-btn').forEach(btn => {
-  btn.href = TELEGRAM_URL;
-  btn.target = '_blank';
-  btn.rel = 'noopener noreferrer';
-});
+/* ===== ССЫЛКИ ВШИТЫ В HTML (href прямо на кнопках) ===== */
+/* JS-подстановка убрана — Edge блокировал динамически заданные href */
 
 /* ===== АНАЛИТИКА: клики по кнопкам ===== */
 document.querySelectorAll('.cta-btn').forEach(btn => {
