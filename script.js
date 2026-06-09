@@ -60,9 +60,8 @@ toggleFab();
 
 /* ===== МОДАЛЬНОЕ ОКНО: ЗАЯВКА С ТАРИФА ===== */
 (function(){
-  const BOT_TOKEN = '8668923201:AAG-cx4FyKhFYwX0IVjpv47Ajjj2z2m2Hlc';
-  const CHAT_ID   = '-1003905330173';
-  const TG_API    = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+  // Прокси на VPS — работает без VPN у клиента
+  const PROXY_URL = 'http://95.214.63.114:8080/lead';
 
   const overlay   = document.getElementById('leadModal');
   const closeBtn  = document.getElementById('modalClose');
@@ -136,19 +135,11 @@ toggleFab();
     submitBtn.disabled = true;
     submitBtn.textContent = 'Отправляем…';
 
-    const now = new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow', hour12: false });
-    const text =
-      `📩 <b>НОВАЯ ЗАЯВКА С САЙТА</b>\n\n` +
-      `👤 Имя: <b>${name}</b>\n` +
-      `📱 Телефон: <b>${phone}</b>\n` +
-      `📦 Тариф: <b>${currentTariff}</b>\n` +
-      `🕐 Время: ${now} (МСК)`;
-
     try {
-      const res = await fetch(TG_API, {
+      const res = await fetch(PROXY_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' })
+        body: JSON.stringify({ name, phone, tariff: currentTariff })
       });
       const data = await res.json();
       if (data.ok) {
