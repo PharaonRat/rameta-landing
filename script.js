@@ -61,7 +61,7 @@ toggleFab();
 /* ===== МОДАЛЬНОЕ ОКНО: ЗАЯВКА С ТАРИФА ===== */
 (function(){
   // Прокси на VPS — работает без VPN у клиента
-  const PROXY_URL = 'http://95.214.63.114:8080/lead';
+  const PROXY_URL = 'http://95.214.63.114:8089/lead';
 
   const overlay   = document.getElementById('leadModal');
   const closeBtn  = document.getElementById('modalClose');
