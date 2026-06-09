@@ -60,8 +60,8 @@ toggleFab();
 
 /* ===== МОДАЛЬНОЕ ОКНО: ЗАЯВКА С ТАРИФА ===== */
 (function(){
-  // Прокси на VPS — работает без VPN у клиента
-  const PROXY_URL = 'http://95.214.63.114:8089/lead';
+  // Vercel Serverless Function — HTTPS, без VPN
+  const PROXY_URL = '/api/lead';
 
   const overlay   = document.getElementById('leadModal');
   const closeBtn  = document.getElementById('modalClose');
