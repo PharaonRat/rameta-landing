@@ -1,5 +1,5 @@
-const BOT_TOKEN      = '8668923201:AAG-cx4FyKhFYwX0IVjpv47Ajjj2z2m2Hlc';
-const MANAGERS_CHAT  = '-1003905330173';
+const BOT_TOKEN      = process.env.BOT_TOKEN;
+const MANAGERS_CHAT  = process.env.MANAGERS_CHAT_ID;
 const TG_API         = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
 export default async function handler(req, res) {
